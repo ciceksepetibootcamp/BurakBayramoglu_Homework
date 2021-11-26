@@ -2,7 +2,7 @@
 
 Çiçeksepeti Test Otomasyon 1. Hafta Ödevi
 
-TR
+
 
 Bu projede 2 class ile toplamda 4 adet test senaryosu bulunmaktadır. Selenium ve JUnit kullanılmıştır.
 
