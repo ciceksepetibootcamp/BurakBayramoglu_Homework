@@ -1,4 +1,4 @@
-# CicekSepeti-TestAutomation-HW1-BurakBayramoglu
+# CicekSepeti-TestAutomation-Week1-HW2-BurakBayramoglu
 
 Çiçeksepeti Test Otomasyon 1. Hafta Ödevi
 
