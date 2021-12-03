@@ -1,0 +1,660 @@
+{
+	"info": {
+		"_postman_id": "61c81353-8670-47aa-8a2d-84a86856dcec",
+		"name": "DISCORD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"\r",
+							"pm.environment.set(\"token\", jsonData.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"login\":\"{{mail}}\",\"password\":\"{{password}}\",\"undelete\":false,\"captcha_key\":null,\"login_source\":null,\"gift_code_sku_id\":null}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://discord.com/api/v9/auth/login",
+					"protocol": "https",
+					"host": [
+						"discord",
+						"com"
+					],
+					"path": [
+						"api",
+						"v9",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send_Message",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"\r",
+							"pm.environment.set(\"lastmsgid\", jsonData.id);\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"content\":\"This is a test message\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://discord.com/api/v9/channels/{{channelid}}/messages",
+					"protocol": "https",
+					"host": [
+						"discord",
+						"com"
+					],
+					"path": [
+						"api",
+						"v9",
+						"channels",
+						"{{channelid}}",
+						"messages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Last Message",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"content\": \"This is an edited message.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://discord.com/api/v9/channels/{{channelid}}/messages/{{lastmsgid}}",
+					"protocol": "https",
+					"host": [
+						"discord",
+						"com"
+					],
+					"path": [
+						"api",
+						"v9",
+						"channels",
+						"{{channelid}}",
+						"messages",
+						"{{lastmsgid}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Reaction To Last Message",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://discord.com/api/v9/channels/{{channelid}}/messages/{{lastmsgid}}/reactions/👍/@me",
+					"protocol": "https",
+					"host": [
+						"discord",
+						"com"
+					],
+					"path": [
+						"api",
+						"v9",
+						"channels",
+						"{{channelid}}",
+						"messages",
+						"{{lastmsgid}}",
+						"reactions",
+						"👍",
+						"@me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Reaction From Last Message",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://discord.com/api/v9/channels/{{channelid}}/messages/{{lastmsgid}}/reactions/👍/@me",
+					"protocol": "https",
+					"host": [
+						"discord",
+						"com"
+					],
+					"path": [
+						"api",
+						"v9",
+						"channels",
+						"{{channelid}}",
+						"messages",
+						"{{lastmsgid}}",
+						"reactions",
+						"👍",
+						"@me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reply To Last Msg",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"\r",
+							"pm.environment.set(\"lastmsgid\", jsonData.id);\r",
+							"pm.environment.set(\"guildid\", jsonData.message_reference.guild_id)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"content\": \"This is a reply message.\",\r\n    \"tts\": false,\r\n    \"message_reference\": {\r\n        \"channel_id\": \"{{channelid}}\",\r\n        \"message_id\": \"{{lastmsgid}}\"\r\n    },\r\n    \"allowed_mentions\": {\r\n        \"parse\": [\r\n            \"users\",\r\n            \"roles\",\r\n            \"everyone\"\r\n        ],\r\n        \"replied_user\": false\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://discord.com/api/v9/channels/{{channelid}}/messages",
+					"protocol": "https",
+					"host": [
+						"discord",
+						"com"
+					],
+					"path": [
+						"api",
+						"v9",
+						"channels",
+						"{{channelid}}",
+						"messages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pin Last Message",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://discord.com/api/v9/channels/{{channelid}}/pins/{{lastmsgid}}",
+					"protocol": "https",
+					"host": [
+						"discord",
+						"com"
+					],
+					"path": [
+						"api",
+						"v9",
+						"channels",
+						"{{channelid}}",
+						"pins",
+						"{{lastmsgid}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Pin",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://discord.com/api/v9/channels/{{channelid}}/pins/{{lastmsgid}}",
+					"protocol": "https",
+					"host": [
+						"discord",
+						"com"
+					],
+					"path": [
+						"api",
+						"v9",
+						"channels",
+						"{{channelid}}",
+						"pins",
+						"{{lastmsgid}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Last Message",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://discord.com/api/v9/channels/{{channelid}}/messages/{{lastmsgid}}",
+					"protocol": "https",
+					"host": [
+						"discord",
+						"com"
+					],
+					"path": [
+						"api",
+						"v9",
+						"channels",
+						"{{channelid}}",
+						"messages",
+						"{{lastmsgid}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateNewChannel",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const channelname = \"testchannel\" + parseInt(Math.random() * 1000)\r",
+							"pm.environment.set(\"channel_name\", channelname)"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"\r",
+							"pm.environment.set(\"new_channelid\", jsonData.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"type\": 0,\r\n  \"name\": \"{{channel_name}}\",\r\n  \"permission_overwrites\": [],\r\n  \"parent_id\": \"{{parent_id}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://discord.com/api/v9/guilds/916332853682397244/channels",
+					"protocol": "https",
+					"host": [
+						"discord",
+						"com"
+					],
+					"path": [
+						"api",
+						"v9",
+						"guilds",
+						"916332853682397244",
+						"channels"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send Msg To New Channel",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"content\":\"This the first message of our newest channel :smile: !\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://discord.com/api/v9/channels/{{new_channelid}}/messages",
+					"protocol": "https",
+					"host": [
+						"discord",
+						"com"
+					],
+					"path": [
+						"api",
+						"v9",
+						"channels",
+						"{{new_channelid}}",
+						"messages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create New Category",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"\r",
+							"pm.environment.set(\"newguildid\", jsonData.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"type\": 4,\r\n  \"name\": \"testCategory\",\r\n  \"permission_overwrites\": []\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://discord.com/api/v9/guilds/{{guildid}}/channels",
+					"protocol": "https",
+					"host": [
+						"discord",
+						"com"
+					],
+					"path": [
+						"api",
+						"v9",
+						"guilds",
+						"{{guildid}}",
+						"channels"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit New Category Name",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"New Category Name\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://discord.com/api/v9/channels/{{newguildid}}",
+					"protocol": "https",
+					"host": [
+						"discord",
+						"com"
+					],
+					"path": [
+						"api",
+						"v9",
+						"channels",
+						"{{newguildid}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create New Voice Channel",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"type\": 2, \"name\": \"NewVoiceChannel\", \"parent_id\": \"{{newguildid}}\"}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://discord.com/api/v9/guilds/{{guildid}}/channels",
+					"protocol": "https",
+					"host": [
+						"discord",
+						"com"
+					],
+					"path": [
+						"api",
+						"v9",
+						"guilds",
+						"{{guildid}}",
+						"channels"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create New Role",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"New Admin Role\",\"color\": \"10181046\", \"hoist\": true}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://discord.com/api/v9/guilds/{{guildid}}/roles",
+					"protocol": "https",
+					"host": [
+						"discord",
+						"com"
+					],
+					"path": [
+						"api",
+						"v9",
+						"guilds",
+						"{{guildid}}",
+						"roles"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
