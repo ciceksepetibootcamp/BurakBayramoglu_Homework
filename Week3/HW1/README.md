@@ -8,9 +8,13 @@ Gerekli kurulumları yaptıktan sonra projeyi çalıştırmak için API Key'e ih
 TEST SENARYOLARI : 
 
 1 - Request Token Oluşturma (createRequestToken) Endpoint : /authentication/token/new
+
 2 - Login Requesti (loginRequest) Endpoint : /authentication/token/validate_with_logi
+
 3 - Rating Kıyaslama Testi (goodRatedMovieTest) Endpoint: /movie/{integer}
+
 4 - En İyi 3. Dizi Testi (checkTheThirdTopRatedTVSeriesName) Endpoint : /tv/top_rated
+
 5 - Janra Validasyon Testi (checkGenres) Endpoint : /genre/movie/list
 
 
