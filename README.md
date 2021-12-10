@@ -12,7 +12,7 @@
 2. Hafta 🌻:
 
   -Homework 1
-  GooglePageSpeed; Nedir? Nasıl Kullanılır? Çiçeksepeti mobil/web üzerinde anlatım medium blogumda paylaşılmıştır.
+  GooglePageSpeed; Nedir? Nasıl Kullanılır? Çiçeksepeti mobil/web üzerinden anlatım medium blogumda paylaşılmıştır.
   
   -Homework 2
   Postman üzerinden 15 adet API testi yapılmıştır.
