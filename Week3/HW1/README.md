@@ -5,6 +5,7 @@ Bu projede Java Rest Assured kullanılarak themoviedb.org sitesine ait 5 adet AP
 Gerekli kurulumları yaptıktan sonra projeyi çalıştırmak için API Key'e ihtiyacınız bulunmakta. The Movie DB sitesine ait API Keyizi https://www.themoviedb.org/settings/api adresinden giriş yaparak API Anahtarı (v3 auth) başlığı altında bulabilirsiniz.
 
 
+
 TEST SENARYOLARI : 
 
 1 - Request Token Oluşturma (createRequestToken) Endpoint : /authentication/token/new
@@ -18,9 +19,12 @@ TEST SENARYOLARI :
 5 - Janra Validasyon Testi (checkGenres) Endpoint : /genre/movie/list
 
 
+
+
 TEST ADIMLARI 
 
 Requestlerde kullanılan syntax -> (Base_URL+EndPoint+"?=api_key=" + API_KEY)
+
 
 createRequestToken :
 
@@ -31,11 +35,15 @@ createRequestToken :
 - Login Requestinde kullanmak üzere request.token kaydedilir.
 - request_token değişkeni set edilir.
 
+
+
 loginRequest :
 
 - Post Request atmak üzere Body Json formatında set edilir. (User,password,request_token değişkenleri)
 - JSON formatında veri ile Post metodu kullanarak request atılır. 
 - Status kodu 200 olup olmadığı kontrol edilir.
+
+
 
 goodRatedMovieTest :
 
@@ -44,11 +52,15 @@ goodRatedMovieTest :
 - Response Body'sindeki "vote_averate" değerinin 5.0'dan büyük olup olmadığı kontrol edilir.
 - Sonuç {Film adı} --> {Puan} şeklinde konsola basılır.
 
+
+
 checkTheThirdTopRatedTVSeriesName:
 
 - Request atmak üzere URL set edilir ve GET metodu ile Request atılır.
 - Status kodu 200 olup olmadığı kontrol edilir.
 - Response Body'sindeki üçüncü elemanın değerinin "Arcane: League of Legends" olup olmadığı kontrol edilir.
+
+
 
 checkGenres :
 
