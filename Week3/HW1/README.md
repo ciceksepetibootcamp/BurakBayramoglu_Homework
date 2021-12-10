@@ -14,11 +14,13 @@ TEST SENARYOLARI :
 5 - Janra Validasyon Testi (checkGenres) Endpoint : /genre/movie/list
 
 
-TEST ADIMLARI
+TEST ADIMLARI 
+
+Requestlerde kullanılan syntax -> (Base_URL+EndPoint+"?=api_key=" + API_KEY)
 
 createRequestToken :
 
-- Request atmak üzere URL set edilir ve GET metodu ile Request atılır. (Base_URL+EndPoint+"?=api_key=" + API_KEY)
+- Request atmak üzere URL set edilir ve GET metodu ile Request atılır.
 - Response status kodu 200 olup olmadığı kontrol edilir.
 - Response Body'sindeki success değerinin True olup olmadığı kontrol edilir.
 - Response'den veri almak için response extract edilir.
@@ -28,4 +30,5 @@ createRequestToken :
 loginRequest :
 
 - Post Request atmak üzere Body Json formatında set edilir. (User,password,request_token değişkenleri)
+- JSON formatında veri ile Post metodu kullanarak request atılır. 
 
