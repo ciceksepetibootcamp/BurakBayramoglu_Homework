@@ -31,4 +31,11 @@ loginRequest :
 
 - Post Request atmak üzere Body Json formatında set edilir. (User,password,request_token değişkenleri)
 - JSON formatında veri ile Post metodu kullanarak request atılır. 
+- Status kodu 200 olup olmadığı kontrol edilir.
+
+goodRatedMovieTest :
+
+- 2 adet film id'si oluşturmak için for döngüsü ile "i" değişkeni oluşturulur. Oluşturulan i değişkeni Endpoint içerisinde kullanılarak request atılır.
+- Status kodu 200 olup olmadığı kontrol edilir.
+- Response Body'sindeki "vote_averate" değerinin 5.0'dan büyük olup olmadığı kontrol edilir.
 
