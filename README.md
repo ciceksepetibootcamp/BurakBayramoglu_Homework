@@ -18,6 +18,7 @@
   Postman üzerinden 15 adet API testi yapılmıştır.
 
 3. Hafta :star_struck::
+
   -Homework 1
   Rest Assured kullanılarak 5 adet API testi yapılmıştır.
   
