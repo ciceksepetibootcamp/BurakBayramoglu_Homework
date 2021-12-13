@@ -1,7 +1,7 @@
 Feature: Monster Notebook Tests
 
   Background:
-    Given  User Navigates to G2A
+    Given  User Navigates to MonsterNotebook
 
   @positive
   Scenario Outline:
