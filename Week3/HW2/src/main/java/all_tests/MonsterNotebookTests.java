@@ -21,7 +21,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class MonsterNotebookTests {
     WebDriver driver;
-    @Given("User Navigates to G2A")
+    @Given("User Navigates to MonsterNotebook")
     public void navigateToWebsite(){
         driver = Driver.getDriver();
         PageFactory.initElements(driver, this);
