@@ -23,4 +23,12 @@
   Rest Assured kullanılarak 5 adet API testi yapılmıştır.
   
   -Homework 2
-  Cucumber ile 5 adet test senaryosu yapılacak.
+  Cucumber ile 5 adet test senaryosu yapılmıştır.
+
+4. Hafta :cowboy_hat_face:
+
+  -Homework 1 
+  C# .net ile 3 adet test senaryosu yapılacaktır.
+  
+  -Homework 2
+  Python Pytest ile 3 adet test senaryosu yapılmıştır.
