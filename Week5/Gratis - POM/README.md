@@ -1,6 +1,6 @@
 # GRATIS POM
 
-GRATIS Android APP Page Object Model UI Testing
+GRATIS Android APP Page Object Model UI Testing using Java Junit, Selenium and Maven
 
 Built on Gratis App Version = v2.1.1
 
