@@ -1,4 +1,4 @@
-# GRATIS POM
+# GRATIS BDD
 
 GRATIS Android APP Page Object Model BDD UI Testing using Java Junit, Selenium and Maven and Cucumber
 
