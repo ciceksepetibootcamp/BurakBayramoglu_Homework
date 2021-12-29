@@ -40,6 +40,7 @@ Yapılmış tüm yorumlar üzerinden;
 
 400 Null Param Testi
 
+![image](https://user-images.githubusercontent.com/13181041/147656574-fdf61e13-1dd3-4614-8cec-0f9fd46f57ab.png)
 
 # Testler
 - Response Code 400
